@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GreenEnemy
   - BlueEnemy
+  - WorldSpace
   layers:
   - Default
   - TransparentFX

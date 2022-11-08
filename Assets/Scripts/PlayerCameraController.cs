@@ -26,24 +26,6 @@ public class PlayerCameraController : MonoBehaviour
 
     private void OnDrag(object sender, DragEventArgs e)
     {
-        //Debug.Log(e.TargetFinger.deltaPosition.x);
-        //if (e.TargetFinger.deltaPosition.x > 0)
-        //{
-        //    lookRotation.y -= lookSensitivity * Time.deltaTime;
-        //}
-        //else if (e.TargetFinger.deltaPosition.x < 0)
-        //{
-        //    lookRotation.y += lookSensitivity * Time.deltaTime;
-        //}
-        
-        //if (e.TargetFinger.deltaPosition.y > 0)
-        //{
-        //    lookRotation.x += lookSensitivity * Time.deltaTime;
-        //}
-        //else if (e.TargetFinger.deltaPosition.y < 0)
-        //{
-        //    lookRotation.x -= lookSensitivity * Time.deltaTime;
-        //}
         lookRotation += new Vector3(e.TargetFinger.deltaPosition.y * lookSensitivity * Time.deltaTime,
             -e.TargetFinger.deltaPosition.x * lookSensitivity * Time.deltaTime,
             0);
