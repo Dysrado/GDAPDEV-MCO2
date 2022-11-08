@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 964667383664602900}
   - component: {fileID: 1250845209}
   - component: {fileID: 1250845208}
-  - component: {fileID: 1250845216}
   - component: {fileID: 1250845217}
+  - component: {fileID: 7657645387837362594}
   m_Layer: 0
   m_Name: Katana
   m_TagString: Untagged
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3102
+  m_VersionIndex: 3105
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -839,26 +839,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 1250845209}
---- !u!95 &1250845216
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7659677940624550510}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9fe8ec48ef77144aab1deeebd2ab28d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1250845217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,4 +851,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528318b5940696149b34308f6b9e9005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1250845216}
+  animator: {fileID: 0}
+--- !u!95 &7657645387837362594
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659677940624550510}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2370c7dcd6bc0f843924629dccb15447, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
