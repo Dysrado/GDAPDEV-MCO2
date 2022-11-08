@@ -22,6 +22,11 @@ public class StationaryEnemy : MonoBehaviour
         
     }
 
+    private void OnDestroy()
+    {
+        Destroy(timerBar);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -57,6 +62,6 @@ public class StationaryEnemy : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log($"Shoot by: {this.gameObject.name}");
+        //Debug.Log($"Shoot by: {this.gameObject.name}");
     }
 }
