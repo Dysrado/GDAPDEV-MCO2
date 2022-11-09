@@ -21,5 +21,6 @@ public class PlayerHurtColliderManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         hpManager.dealDmg(1);
+        other.gameObject.SetActive(false);
     }
 }

@@ -9,7 +9,26 @@ public class KatanaAnimationHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GestureManager.Instance.OnSwipe += OnSwipe;
+    }
+
+    private void OnDisable()
+    {
+        GestureManager.Instance.OnSwipe -= OnSwipe;
+    }
+
+    public void OnSwipe(object send, SwipeEventArgs args)
+    {
+        Debug.Log($"Swipe Detected, {args.SwipeDirection}");
+
+        if (args.SwipeDirection == SwipeDirection.RIGHT)
+        {
+            animator.SetTrigger("didSwipeRight");
+        }
+        else if (args.SwipeDirection == SwipeDirection.LEFT)
+        {
+            animator.SetTrigger("didSwipeLeft");
+        }
     }
 
     // Update is called once per frame

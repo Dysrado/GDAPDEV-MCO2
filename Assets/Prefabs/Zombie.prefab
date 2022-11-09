@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3508170642845085836}
   - component: {fileID: 4751824783715189621}
   - component: {fileID: 5665321109669461114}
-  - component: {fileID: 9124193245570809200}
+  - component: {fileID: 610253886008915673}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: GreenEnemy
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7850
+  m_VersionIndex: 7841
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  targetTag: Player
+  targetTag: PlayerCenter
   speed: 0.3
 --- !u!65 &5665321109669461114
 BoxCollider:
@@ -1182,7 +1182,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.52068615, y: 1.2232126, z: 0.9680257}
   m_Center: {x: 0.26034307, y: 0.6116063, z: 0.23401284}
---- !u!54 &9124193245570809200
+--- !u!54 &610253886008915673
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

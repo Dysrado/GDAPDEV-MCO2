@@ -26,8 +26,8 @@ public class PlayerCameraController : MonoBehaviour
 
     private void OnDrag(object sender, DragEventArgs e)
     {
-        lookRotation += new Vector3(e.TargetFinger.deltaPosition.y * lookSensitivity * Time.deltaTime,
-            -e.TargetFinger.deltaPosition.x * lookSensitivity * Time.deltaTime,
+        lookRotation += new Vector3(-e.TargetFinger.deltaPosition.y * lookSensitivity * Time.deltaTime,
+            e.TargetFinger.deltaPosition.x * lookSensitivity * Time.deltaTime,
             0);
         transform.eulerAngles = lookRotation;
     }
