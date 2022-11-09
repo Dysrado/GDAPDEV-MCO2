@@ -29,4 +29,13 @@ public class HPManager : MonoBehaviour
     {
         currentHP -= dmg;
     }
+
+    public void IncreaseHP()
+    {
+        if (maxHP < 15)
+        {
+            maxHP++;
+            currentHP = maxHP; //Remove this before submitting
+        }
+    }
 }

@@ -8,7 +8,8 @@ public class RevolverGun : MonoBehaviour
 {
     [SerializeField] string enemyTag = "BlueEnemy";
     [SerializeField] TMP_Text ammoText;
-
+   [SerializeField] Camera PlayerCam;
+    
     // For the Magazine Size
     [SerializeField] float maxMagazineSize = 6;
     float currentAmmo;
@@ -26,7 +27,7 @@ public class RevolverGun : MonoBehaviour
     bool startShotInterval = false;
     bool isReloading = false;
 
-    Animator anim;
+   // Animator anim;
 
     // For scoring
     [SerializeField] private CoinsManager coinsManager;
@@ -36,18 +37,19 @@ public class RevolverGun : MonoBehaviour
     void Start()
     {
         //GestureManager.Instance.OnTap += OnTap;
-        muzzleFlash.Stop();
+        //muzzleFlash.Stop();
 
         currentAmmo = maxMagazineSize;
         shotTimer = shotInterval;
         reloadTimer = reloadInterval;
-        anim = GetComponent<Animator>();
+       // anim = GetComponent<Animator>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(PlayerCam.transform.position, PlayerCam.transform.forward, Color.green);
         if (isReloading) // countdownt for the reload
         {
             reloadTimer -= Time.deltaTime;
@@ -93,7 +95,7 @@ public class RevolverGun : MonoBehaviour
         if (!isReloading && currentAmmo != maxMagazineSize)
         {
             isReloading = true;
-            anim.SetTrigger("Reload");
+            //anim.SetTrigger("Reload");
             Debug.Log("Reloading");
         }
     }
@@ -101,23 +103,26 @@ public class RevolverGun : MonoBehaviour
     // Used for the button
     public void Shoot() 
     {
+        
         if (canShoot && !startShotInterval)
         {
             
             if (currentAmmo > 0)
             {
                 currentAmmo--;
-                muzzleFlash.Play();
-                anim.SetTrigger("Shoot");
+                //muzzleFlash.Play();
+                //anim.SetTrigger("Shoot");
             }
-
+            
             RaycastHit hit;
             //Debug.DrawRay(transform.position, transform.forward * 10, Color.red, 5);
-            if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
+            
+            if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
             {
                 hitObj = hit.collider.gameObject;
                 if (hitObj.CompareTag(enemyTag))
                 {
+                    Debug.Log("Object Hit!");
                     hitObj.SetActive(false);
                     coinsManager.addCoin(3);
 
@@ -130,4 +135,19 @@ public class RevolverGun : MonoBehaviour
             startShotInterval = true;
         }
     }
+
+    public void increaseFireRate()
+    {
+        if (shotInterval > 0.5f) {
+            shotInterval -= 0.5f;
+        }
+    }
+    public void increaseMagSize()
+    {
+        if (maxMagazineSize < 12)
+        {
+            maxMagazineSize++;
+        }
+    }
+
 }

@@ -8,6 +8,8 @@ TagManager:
   - BlueEnemy
   - WorldSpace
   - PlayerCenter
+  - RedEnemy
+  - RedNodes
   layers:
   - Default
   - TransparentFX
