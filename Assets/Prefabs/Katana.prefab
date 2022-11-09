@@ -731,7 +731,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3105
+  m_VersionIndex: 3117
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -839,6 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 1250845209}
+  coinsManager: {fileID: 0}
 --- !u!114 &1250845217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528318b5940696149b34308f6b9e9005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 7657645387837362594}
 --- !u!95 &7657645387837362594
 Animator:
   serializedVersion: 4

@@ -5,6 +5,7 @@ using UnityEngine;
 public class KatanaCollisionHandler : MonoBehaviour
 {
     [SerializeField] private Collider boxCollider;
+    [SerializeField] private CoinsManager coinsManager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class KatanaCollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("GreenEnemy"))
         {
             collision.gameObject.SetActive(false);
+            coinsManager.addCoin(2);
         }
     }
 }

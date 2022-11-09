@@ -25,6 +25,9 @@ public class RevolverGun : MonoBehaviour
     bool startShotInterval = false;
     bool isReloading = false;
 
+    // For scoring
+    [SerializeField] private CoinsManager coinsManager;
+
     void Start()
     {
         //GestureManager.Instance.OnTap += OnTap;
@@ -106,6 +109,8 @@ public class RevolverGun : MonoBehaviour
                 if (hitObj.CompareTag(enemyTag))
                 {
                     hitObj.SetActive(false);
+                    coinsManager.addCoin(3);
+
                 }
                 else
                 {
