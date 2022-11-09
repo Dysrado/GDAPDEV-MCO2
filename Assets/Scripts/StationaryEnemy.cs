@@ -8,7 +8,7 @@ public class StationaryEnemy : MonoBehaviour
     [SerializeField] string playerTag = "Player";
     [SerializeField] string WorldSpaceCanvas = "WorldSpace";
     [SerializeField] GameObject UITimer;
-    protected Image timerBar;
+    private Image timerBar;
     Transform player;
 
     [SerializeField] float attackInterval = 1f;
@@ -19,13 +19,17 @@ public class StationaryEnemy : MonoBehaviour
         timerBar = Instantiate(UITimer, GameObject.FindGameObjectWithTag(WorldSpaceCanvas).transform).GetComponent<Image>();
         player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<Transform>();
         attackTime = attackInterval;
-        
+        timerBar.gameObject.SetActive(true);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        Destroy(timerBar);
+        if (timerBar.gameObject != null)
+        {
+            timerBar.gameObject.SetActive(false);
+        } 
     }
+
 
     // Update is called once per frame
     void Update()
@@ -43,7 +47,7 @@ public class StationaryEnemy : MonoBehaviour
     void UpdateBarPosition()
     {
         timerBar.transform.position = transform.position + new Vector3(0, 1, 0);
-        timerBar.transform.eulerAngles = player.rotation.eulerAngles + new Vector3(0,-90,0);
+        timerBar.transform.forward = player.transform.position - timerBar.transform.position;
     }
 
     void UpdateTimer()

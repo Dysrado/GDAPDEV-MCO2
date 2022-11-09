@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using TMPro;
 
 public class RevolverGun : MonoBehaviour
@@ -25,16 +26,22 @@ public class RevolverGun : MonoBehaviour
     bool startShotInterval = false;
     bool isReloading = false;
 
+    Animator anim;
+
     // For scoring
     [SerializeField] private CoinsManager coinsManager;
+
+    [SerializeField] ParticleSystem muzzleFlash;
 
     void Start()
     {
         //GestureManager.Instance.OnTap += OnTap;
+        muzzleFlash.Stop();
 
         currentAmmo = maxMagazineSize;
         shotTimer = shotInterval;
         reloadTimer = reloadInterval;
+        anim = GetComponent<Animator>();
     }
 
 
@@ -86,6 +93,7 @@ public class RevolverGun : MonoBehaviour
         if (!isReloading && currentAmmo != maxMagazineSize)
         {
             isReloading = true;
+            anim.SetTrigger("Reload");
             Debug.Log("Reloading");
         }
     }
@@ -95,10 +103,12 @@ public class RevolverGun : MonoBehaviour
     {
         if (canShoot && !startShotInterval)
         {
+            
             if (currentAmmo > 0)
             {
                 currentAmmo--;
-                Debug.Log(currentAmmo);
+                muzzleFlash.Play();
+                anim.SetTrigger("Shoot");
             }
 
             RaycastHit hit;
