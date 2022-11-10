@@ -14,7 +14,7 @@ public class StationaryEnemy : MonoBehaviour
     [SerializeField] float attackInterval = 1f;
     float attackTime;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         timerBar = Instantiate(UITimer, GameObject.FindGameObjectWithTag(WorldSpaceCanvas).transform).GetComponent<Image>();
         player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<Transform>();
