@@ -8,7 +8,7 @@ public class RevolverGun : MonoBehaviour
 {
     [SerializeField] string enemyTag = "BlueEnemy";
     [SerializeField] TMP_Text ammoText;
-   [SerializeField] Camera PlayerCam;
+    [SerializeField] Camera PlayerCam;
     
     // For the Magazine Size
     [SerializeField] float maxMagazineSize = 6;
@@ -27,7 +27,7 @@ public class RevolverGun : MonoBehaviour
     bool startShotInterval = false;
     bool isReloading = false;
 
-   // Animator anim;
+    [SerializeField] Animator anim;
 
     // For scoring
     [SerializeField] private CoinsManager coinsManager;
@@ -37,14 +37,17 @@ public class RevolverGun : MonoBehaviour
     void Start()
     {
         //GestureManager.Instance.OnTap += OnTap;
-        //muzzleFlash.Stop();
+        muzzleFlash.Stop();
 
         currentAmmo = maxMagazineSize;
         shotTimer = shotInterval;
         reloadTimer = reloadInterval;
-       // anim = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        muzzleFlash.Stop();
+    }
 
     // Update is called once per frame
     void Update()
@@ -95,7 +98,7 @@ public class RevolverGun : MonoBehaviour
         if (!isReloading && currentAmmo != maxMagazineSize)
         {
             isReloading = true;
-            //anim.SetTrigger("Reload");
+            anim.SetTrigger("Reload");
             Debug.Log("Reloading");
         }
     }
@@ -110,8 +113,8 @@ public class RevolverGun : MonoBehaviour
             if (currentAmmo > 0)
             {
                 currentAmmo--;
-                //muzzleFlash.Play();
-                //anim.SetTrigger("Shoot");
+                muzzleFlash.Play();
+                anim.SetTrigger("Shoot");
             }
             
             RaycastHit hit;

@@ -26,24 +26,28 @@ public class RifleGun : MonoBehaviour
     bool startShotInterval = false;
     bool isReloading = false;
 
-    Animator anim;
+    [SerializeField] Animator anim;
 
     //// For scoring
-    //[SerializeField] private CoinsManager coinsManager;
+    [SerializeField] private CoinsManager coinsManager;
 
-    //[SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] ParticleSystem muzzleFlash;
 
     void Start()
     {
-        //GestureManager.Instance.OnTap += OnTap;
-       // muzzleFlash.Stop();
+
+        muzzleFlash.Stop();
 
         currentAmmo = maxMagazineSize;
         shotTimer = shotInterval;
         reloadTimer = reloadInterval;
-       // anim = GetComponent<Animator>();
+
     }
 
+    private void OnEnable()
+    {
+        muzzleFlash.Stop();
+    }
 
     // Update is called once per frame
     void Update()
@@ -83,17 +87,12 @@ public class RifleGun : MonoBehaviour
 
     }
 
-    //public void OnTap(object sender, TapEventArgs e)
-    //{
-    //
-    //}
-
     public void Reload()
     {
         if (!isReloading && currentAmmo != maxMagazineSize)
         {
             isReloading = true;
-            anim.SetTrigger("Reload");
+            anim.SetTrigger("RReload");
             Debug.Log("Reloading");
         }
     }
@@ -107,8 +106,8 @@ public class RifleGun : MonoBehaviour
             if (currentAmmo > 0)
             {
                 currentAmmo--;
-                //muzzleFlash.Play();
-                //anim.SetTrigger("Shoot");
+                muzzleFlash.Play();
+                anim.SetTrigger("RShoot");
             }
 
             RaycastHit hit;
@@ -119,7 +118,7 @@ public class RifleGun : MonoBehaviour
                 if (hitObj.CompareTag(enemyTag))
                 {
                     hitObj.SetActive(false);
-                    //coinsManager.addCoin(3);
+                    coinsManager.addCoin(3);
 
                 }
                 else
