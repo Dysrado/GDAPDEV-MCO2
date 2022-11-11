@@ -97,7 +97,7 @@ public class FirstBossManager : MonoBehaviour
             if(bossAnimationHandler.isDamageFinished())
             {
                 currentHp -= 1;
-                if (currentHp == 0)
+                if (currentHp <= 0)
                 {
                     Debug.Log("You win!");
                 }
