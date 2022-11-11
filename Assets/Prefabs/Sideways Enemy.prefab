@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &134240388282949145
 Transform:
   m_ObjectHideFlags: 0
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134240388282949144}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.165, y: 0.64, z: 3.837}
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 134240389929014365}
   - component: {fileID: 134240389929014364}
   - component: {fileID: 134240389929014367}
-  - component: {fileID: 134240389929014362}
   - component: {fileID: 134240389929014363}
   m_Layer: 0
   m_Name: SidewaysEnemy
@@ -131,25 +130,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &134240389929014362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134240389929014305}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99f80cedac8925c4ba862e10f7f5572f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.3
-  playerTag: Player
-  WorldSpaceCanvas: WorldSpace
-  UITimer: {fileID: 4472466725489252813, guid: 60cd13bd6de845941a0aec20e8f04554, type: 3}
-  NodeA: {fileID: 0}
-  NodeB: {fileID: 0}
-  attackInterval: 5
 --- !u!114 &134240389929014363
 MonoBehaviour:
   m_ObjectHideFlags: 0

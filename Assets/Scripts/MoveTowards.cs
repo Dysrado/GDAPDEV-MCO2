@@ -15,6 +15,8 @@ public class MoveTowards : MonoBehaviour
         speed = Random.Range(speed, speed + 4f); // randomize speed
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {

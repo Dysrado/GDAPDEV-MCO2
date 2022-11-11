@@ -14,14 +14,14 @@ public class StationaryEnemy : MonoBehaviour
     [SerializeField] float attackInterval = 1f;
     float attackTime;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         timerBar = Instantiate(UITimer, GameObject.FindGameObjectWithTag(WorldSpaceCanvas).transform).GetComponent<Image>();
         player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<Transform>();
         attackTime = attackInterval;
         timerBar.gameObject.SetActive(true);
     }
-
+    
     private void OnDisable()
     {
         if (timerBar.gameObject != null)
@@ -68,4 +68,6 @@ public class StationaryEnemy : MonoBehaviour
     {
         //Debug.Log($"Shoot by: {this.gameObject.name}");
     }
+
+    
 }
