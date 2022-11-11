@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HPManager : MonoBehaviour
 {
-
+    [SerializeField] CoinsManager coinsmanager;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private int maxHP;
     [SerializeField] private int currentHP;
@@ -32,10 +32,17 @@ public class HPManager : MonoBehaviour
 
     public void IncreaseHP()
     {
-        if (maxHP < 15)
+        if (maxHP < 15 && coinsmanager.getCoins() >= 3)
         {
+            coinsmanager.deductCoins(3);
             maxHP++;
-            currentHP = maxHP; //Remove this before submitting
+            currentHP = maxHP; 
         }
+    }
+
+    public void InfiniteHP()
+    {
+        maxHP = 9999;
+        currentHP = maxHP;  
     }
 }

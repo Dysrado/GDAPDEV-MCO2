@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProgressionSystemPanel : MonoBehaviour
+public class CheatMode : MonoBehaviour
 {
     [SerializeField] GameObject Panel;
-
-    private void Start()
-    {
-        Panel.SetActive(true);
-        Time.timeScale = 0;
-    }
+   
     public void ShowPanel()
     {
         Panel.SetActive(true);

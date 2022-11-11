@@ -13,7 +13,7 @@ public class CoinsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentCoins = 5;
     }
 
     // Update is called once per frame
@@ -27,5 +27,13 @@ public class CoinsManager : MonoBehaviour
         currentCoins += amt;
     }
 
+    public int getCoins()
+    {
+        return currentCoins;
+    }
 
+    public void deductCoins(int amt)
+    {
+        currentCoins -= amt;
+    }
 }

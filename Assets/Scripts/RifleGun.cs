@@ -36,7 +36,7 @@ public class RifleGun : MonoBehaviour
 
     void Start()
     {
-
+        coinsManager = FindObjectOfType<CoinsManager>();
         muzzleFlash.Stop();
 
         currentAmmo = maxMagazineSize;
@@ -132,9 +132,16 @@ public class RifleGun : MonoBehaviour
 
     public void increaseMagSize()
     {
-        if (maxMagazineSize < 60)
+        if (maxMagazineSize < 60 && coinsManager.getCoins() >= 2)
         {
+            Debug.Log("Bought stuff");
+            coinsManager.deductCoins(2);    
             maxMagazineSize += 15;
         }
+    }
+    public void infiniteAmmo()
+    {
+        maxMagazineSize = 9999;
+        currentAmmo = maxMagazineSize;
     }
 }

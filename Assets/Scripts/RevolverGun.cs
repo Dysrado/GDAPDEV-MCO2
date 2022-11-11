@@ -38,6 +38,7 @@ public class RevolverGun : MonoBehaviour
     void Start()
     {
         //GestureManager.Instance.OnTap += OnTap;
+        coinsManager = FindObjectOfType<CoinsManager>();
         muzzleFlash.Stop();
 
         currentAmmo = maxMagazineSize;
@@ -89,10 +90,7 @@ public class RevolverGun : MonoBehaviour
         
     }
 
-    //public void OnTap(object sender, TapEventArgs e)
-    //{
-    //
-    //}
+
 
     public void Reload()
     {
@@ -143,16 +141,24 @@ public class RevolverGun : MonoBehaviour
 
     public void increaseFireRate()
     {
-        if (shotInterval > 0.5f) {
-            shotInterval -= 0.5f;
+        if (shotInterval > 0.1f && coinsManager.getCoins() >= 1) {
+            coinsManager.deductCoins(1);
+            shotInterval -= 0.1f;
         }
     }
     public void increaseMagSize()
     {
-        if (maxMagazineSize < 12)
+        if (maxMagazineSize < 12 && coinsManager.getCoins() >= 1)
         {
+            coinsManager.deductCoins(1);
             maxMagazineSize++;
         }
+    }
+
+    public void infiniteAmmo()
+    {
+        maxMagazineSize = 9999;
+        currentAmmo = maxMagazineSize;
     }
 
 }
