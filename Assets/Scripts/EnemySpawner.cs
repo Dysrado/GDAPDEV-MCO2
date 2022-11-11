@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     // Start is called before the first frame update
     ObjectPooler objPooler;
-   
+  
    
     [SerializeField] GameObject[] NodeList;
     [SerializeField] float SpawnInterval = 1.5f;
@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     {
         objPooler = ObjectPooler.Instance;
         Timer = SpawnInterval;
+        
     }
 
     // Update is called once per frame
@@ -28,15 +29,15 @@ public class EnemySpawner : MonoBehaviour
             switch (Enemy)
             {
                 case 1:
-                    Node = Random.Range(1, 4);
+                    Node = Random.Range(1, (NodeList.Length/3) + 1);
                     objPooler.SpawnFromPool("GreenEnemy", NodeList[Node - 1].transform.position);
                     break;
                 case 2:
-                    Node = Random.Range(4, 7);
+                    Node = Random.Range((NodeList.Length / 3) + 1, (NodeList.Length / 3) * 2 + 1);
                     objPooler.SpawnFromPool("BlueEnemy", NodeList[Node - 1].transform.position);
                     break;
                 case 3:
-                    Node = Random.Range(7, 10);
+                    Node = Random.Range((NodeList.Length / 3) * 2 + 1, (NodeList.Length / 3) * 3 + 1);
                     objPooler.SpawnFromPool("RedEnemy", NodeList[Node - 1].transform.position);
                     break;
             }

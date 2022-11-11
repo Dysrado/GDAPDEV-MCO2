@@ -6,6 +6,7 @@ public class KatanaCollisionHandler : MonoBehaviour
 {
     [SerializeField] private Collider boxCollider;
     [SerializeField] private CoinsManager coinsManager;
+    [SerializeField] private EnemyCountHandler killsManager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class KatanaCollisionHandler : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             coinsManager.addCoin(2);
+            killsManager.addKills();
         }
     }
 }

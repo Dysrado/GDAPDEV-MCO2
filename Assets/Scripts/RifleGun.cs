@@ -8,6 +8,7 @@ public class RifleGun : MonoBehaviour
     [SerializeField] string enemyTag = "GreenEnemy";
     [SerializeField] TMP_Text ammoText;
     [SerializeField] Camera PlayerCam;
+    [SerializeField] EnemyCountHandler killsManager;
 
     // For the Magazine Size
     [SerializeField] float maxMagazineSize = 30;
@@ -111,15 +112,14 @@ public class RifleGun : MonoBehaviour
             }
 
             RaycastHit hit;
-            //Debug.DrawRay(transform.position, transform.forward * 10, Color.red, 5);
             if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
             {
                 hitObj = hit.collider.gameObject;
                 if (hitObj.CompareTag(enemyTag))
                 {
                     hitObj.SetActive(false);
-                    coinsManager.addCoin(3);
-
+                    coinsManager.addCoin(4);
+                    killsManager.addKills();
                 }
                 else
                 {

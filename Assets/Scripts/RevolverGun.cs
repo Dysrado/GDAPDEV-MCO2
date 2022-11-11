@@ -9,7 +9,8 @@ public class RevolverGun : MonoBehaviour
     [SerializeField] string enemyTag = "BlueEnemy";
     [SerializeField] TMP_Text ammoText;
     [SerializeField] Camera PlayerCam;
-    
+    [SerializeField] EnemyCountHandler killsManager;
+
     // For the Magazine Size
     [SerializeField] float maxMagazineSize = 6;
     float currentAmmo;
@@ -128,6 +129,7 @@ public class RevolverGun : MonoBehaviour
                     Debug.Log("Object Hit!");
                     hitObj.SetActive(false);
                     coinsManager.addCoin(3);
+                    killsManager.addKills();
 
                 }
                 else
