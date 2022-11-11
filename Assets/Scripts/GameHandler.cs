@@ -80,6 +80,7 @@ public class GameHandler : MonoBehaviour
                     Player.transform.position = Vector3.MoveTowards(Player.transform.position, LevelNodes[2].transform.position, 4 * Time.deltaTime);
                     break;
             }
+            deleteEnemies();
         }
     }
 
@@ -107,5 +108,26 @@ public class GameHandler : MonoBehaviour
                 break;
         }
         return false;
+    }
+
+    void deleteEnemies()
+    {
+        GameObject[] red = GameObject.FindGameObjectsWithTag("RedEnemy");
+        GameObject[] green = GameObject.FindGameObjectsWithTag("GreenEnemy");
+        GameObject[] blue = GameObject.FindGameObjectsWithTag("BlueEnemy");
+        for (int i = 0; i < red.Length; i++)
+        {
+            red[i].SetActive(false);
+        }
+        for (int i = 0; i < green.Length; i++)
+        {
+            green[i].SetActive(false);
+        }
+        for (int i = 0; i < blue.Length; i++)
+        {
+            blue[i].SetActive(false);
+        }
+        
+
     }
 }

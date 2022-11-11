@@ -47,7 +47,7 @@ public class EnemyCountHandler : MonoBehaviour
     }
     public bool goalKills()
     {
-        if (currentKills == maxKills)
+        if (currentKills >= maxKills)
         {
             return true;
         }
