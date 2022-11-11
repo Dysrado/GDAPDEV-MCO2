@@ -54,4 +54,8 @@ public class EnemyCountHandler : MonoBehaviour
         return false;
     }
 
+    public void UltKills(int kills) {
+        currentKills += kills;
+    }
+
 }

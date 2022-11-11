@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour
 {
@@ -13,12 +14,21 @@ public class GameHandler : MonoBehaviour
     EnemyCountHandler killsManager;
     private bool transitionCondition;
     private bool finishTransition = false;
+
+    [SerializeField] protected Image BurstMeter;
+    [SerializeField] float burstTime = 15f;
+    float burstTimer;
+    bool canBurst = false;
+
+    public float distanceThreshold = 1f;
+    private Vector3 prevAccel = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
         killsManager = FindObjectOfType<EnemyCountHandler>();
         transitionSelect();
-        
+        burstTimer = burstTime;
     }
 
     // Update is called once per frame
@@ -27,6 +37,36 @@ public class GameHandler : MonoBehaviour
         checkPartClear();
         finishTransition = checkPosition();
         transitionMovement();
+
+        if (prevAccel == Vector3.zero)
+        {
+            prevAccel = Input.acceleration;
+        }
+
+        float distance = Vector3.Distance(prevAccel, Input.acceleration);
+
+        if (Mathf.Abs(distance) >= distanceThreshold)
+        {
+            if (canBurst) {
+                Debug.Log("Burst");
+                deleteEnemiesUlt();
+                canBurst = false;
+            }
+        }
+
+        prevAccel = Input.acceleration;
+        if (!canBurst) {
+            if (burstTimer <= 0)
+            {
+                canBurst = true;
+                burstTimer = burstTime;
+            }
+            else
+            {
+                burstTimer -= Time.deltaTime;
+            }
+        }
+        BurstMeter.fillAmount = burstTimer/burstTime;
     }
 
     void checkPartClear()
@@ -127,7 +167,27 @@ public class GameHandler : MonoBehaviour
         {
             blue[i].SetActive(false);
         }
-        
 
+    }
+
+    void deleteEnemiesUlt()
+    {
+        GameObject[] red = GameObject.FindGameObjectsWithTag("RedEnemy");
+        GameObject[] green = GameObject.FindGameObjectsWithTag("GreenEnemy");
+        GameObject[] blue = GameObject.FindGameObjectsWithTag("BlueEnemy");
+        for (int i = 0; i < red.Length; i++)
+        {
+            red[i].SetActive(false);
+        }
+        for (int i = 0; i < green.Length; i++)
+        {
+            green[i].SetActive(false);
+        }
+        for (int i = 0; i < blue.Length; i++)
+        {
+            blue[i].SetActive(false);
+        }
+        int total = red.Length + green.Length + blue.Length;
+        killsManager.UltKills(total);
     }
 }

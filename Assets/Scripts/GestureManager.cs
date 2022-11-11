@@ -94,6 +94,8 @@ public class GestureManager : MonoBehaviour
                 }
             }
         }
+
+
     }
 
     private void CheckSingleFingerGestures()
