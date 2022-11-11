@@ -20,7 +20,11 @@ public class PlayerHurtColliderManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        hpManager.dealDmg(1);
-        other.gameObject.SetActive(false);
+        Debug.Log("Collided with " + other.gameObject.name);
+        if(other.gameObject.CompareTag("GreenEnemy"))
+        { 
+            hpManager.dealDmg(1);
+            other.gameObject.SetActive(false);
+        }
     }
 }

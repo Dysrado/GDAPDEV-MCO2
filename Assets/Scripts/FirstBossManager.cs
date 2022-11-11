@@ -74,7 +74,7 @@ public class FirstBossManager : MonoBehaviour
     {
         for(int i = 0; i < projectiles.Count; i++)
         {
-            projectiles[i].transform.position = Vector3.MoveTowards(projectiles[i].transform.position, playerCenter.transform.position, projectileSpeed * Time.deltaTime);
+            //projectiles[i].transform.position = Vector3.MoveTowards(projectiles[i].transform.position, playerCenter.transform.position, projectileSpeed * Time.deltaTime);
         }
     }
 }
