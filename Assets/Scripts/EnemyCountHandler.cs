@@ -33,11 +33,11 @@ public class EnemyCountHandler : MonoBehaviour
         {
             case 1:
                 currentKills = 0;
-                maxKills = 1;
+                maxKills = 25;
                 break;
             case 2:
                 currentKills = 0;
-                maxKills = 1;
+                maxKills = 15;
                 break;
             case 3:
                 currentKills = 0;

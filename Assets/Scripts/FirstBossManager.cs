@@ -18,6 +18,9 @@ public class FirstBossManager : MonoBehaviour
 {
     public FirstBossState bossState;
     [SerializeField] private Animator animator;
+    public BossAnimationHandler bossAnimationHandler;
+    public float maxHp;
+    public float currentHp;
 
     [SerializeField] private GameObject shieldSpawner;
     [SerializeField] private GameObject shieldPrefab;
@@ -44,6 +47,7 @@ public class FirstBossManager : MonoBehaviour
         SpawnProjectile();
         projectileTicks = 0f;
         projectileInterval = 3; // Default value
+        currentHp = maxHp;
     }
 
     // Update is called once per frame
@@ -80,7 +84,7 @@ public class FirstBossManager : MonoBehaviour
     {
         for(int i = 0; i < projectiles.Count; i++)
         {
-            //projectiles[i].transform.position = Vector3.MoveTowards(projectiles[i].transform.position, playerCenter.transform.position, projectileSpeed * Time.deltaTime);
+            projectiles[i].transform.position = Vector3.MoveTowards(projectiles[i].transform.position, playerCenter.transform.position, projectileSpeed * Time.deltaTime);
         }
     }
 
@@ -89,10 +93,21 @@ public class FirstBossManager : MonoBehaviour
         if (!bossShieldManager.IsChildrenActive())
         {
             Debug.Log("No more shields!");
-        }
-        else
-        {
-            animator.SetBool("isDamaged", false);
+            animator.SetBool("isDamaged", true);
+            if(bossAnimationHandler.isDamageFinished())
+            {
+                currentHp -= 1;
+                if (currentHp == 0)
+                {
+                    Debug.Log("You win!");
+                }
+                else
+                {
+                    SpawnShield();
+                    animator.SetBool("isDamaged", false);
+                    bossAnimationHandler.setDamageFinished(false);
+                }
+            }
         }
     }
 }
