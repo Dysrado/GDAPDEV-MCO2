@@ -23,12 +23,16 @@ public class GameHandler : MonoBehaviour
     public float distanceThreshold = 1f;
     private Vector3 prevAccel = Vector3.zero;
 
+    // Boss
+    public GameObject boss;
+
     // Start is called before the first frame update
     void Start()
     {
         killsManager = FindObjectOfType<EnemyCountHandler>();
         transitionSelect();
         burstTimer = burstTime;
+        boss.SetActive(false);
     }
 
     // Update is called once per frame
@@ -143,6 +147,7 @@ public class GameHandler : MonoBehaviour
             case 3:
                 if (Player.transform.position == LevelNodes[2].transform.position)
                 {
+                    boss.SetActive(true);
                     return true;
                 }
                 break;
