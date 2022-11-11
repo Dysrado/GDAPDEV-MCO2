@@ -5,6 +5,7 @@ using UnityEngine;
 public class KatanaAnimationHandler : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +25,14 @@ public class KatanaAnimationHandler : MonoBehaviour
         if (args.SwipeDirection == SwipeDirection.RIGHT)
         {
             animator.SetTrigger("didSwipeRight");
+            SoundManager.Instance.PlaySound(clip);
         }
         else if (args.SwipeDirection == SwipeDirection.LEFT)
         {
             animator.SetTrigger("didSwipeLeft");
+            SoundManager.Instance.PlaySound(clip);
         }
+
     }
 
     // Update is called once per frame

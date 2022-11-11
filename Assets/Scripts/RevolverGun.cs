@@ -10,6 +10,7 @@ public class RevolverGun : MonoBehaviour
     [SerializeField] TMP_Text ammoText;
     [SerializeField] Camera PlayerCam;
     [SerializeField] EnemyCountHandler killsManager;
+    [SerializeField] AudioClip clip;
 
     // For the Magazine Size
     [SerializeField] float maxMagazineSize = 6;
@@ -114,6 +115,7 @@ public class RevolverGun : MonoBehaviour
                 currentAmmo--;
                 muzzleFlash.Play();
                 anim.SetTrigger("Shoot");
+                SoundManager.Instance.PlaySound(clip);
             }
             
             RaycastHit hit;

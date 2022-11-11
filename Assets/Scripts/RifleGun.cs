@@ -9,6 +9,7 @@ public class RifleGun : MonoBehaviour
     [SerializeField] TMP_Text ammoText;
     [SerializeField] Camera PlayerCam;
     [SerializeField] EnemyCountHandler killsManager;
+    [SerializeField] AudioClip clip;
 
     // For the Magazine Size
     [SerializeField] float maxMagazineSize = 30;
@@ -95,6 +96,7 @@ public class RifleGun : MonoBehaviour
             isReloading = true;
             anim.SetTrigger("RReload");
             Debug.Log("Reloading");
+            SoundManager.Instance.PlaySound(clip);
         }
     }
 

@@ -8932,6 +8932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookSensitivity: 10
+  clip: {fileID: 8300000, guid: 9319da51fe6b5ca46956ec4b5829d9e9, type: 3}
 --- !u!95 &963194231
 Animator:
   serializedVersion: 4
@@ -26698,6 +26699,7 @@ MonoBehaviour:
   ammoText: {fileID: 215242508}
   PlayerCam: {fileID: 963194227}
   killsManager: {fileID: 2070336292}
+  clip: {fileID: 8300000, guid: 5b3b274f4044a6b4aa6ecbdb799e48fd, type: 3}
   maxMagazineSize: 30
   shotInterval: 0.1
   reloadInterval: 2
@@ -27463,7 +27465,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1508
+  m_Name: pb_Mesh-1674
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28061,6 +28063,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992500741}
   m_CullTransparentMesh: 1
+--- !u!1001 &1992908563
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385233, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674181177414385235, guid: c1c5223234ed69541a639f3d81451972, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1c5223234ed69541a639f3d81451972, type: 3}
 --- !u!1 &2044150784
 GameObject:
   m_ObjectHideFlags: 0
@@ -28589,6 +28648,7 @@ MonoBehaviour:
   ammoText: {fileID: 215242508}
   PlayerCam: {fileID: 963194227}
   killsManager: {fileID: 2070336292}
+  clip: {fileID: 8300000, guid: 893a02386b93e6442ba6dd1058cbc064, type: 3}
   maxMagazineSize: 6
   shotInterval: 0.3
   reloadInterval: 0.7
@@ -28610,6 +28670,10 @@ PrefabInstance:
       propertyPath: killsManager
       value: 
       objectReference: {fileID: 2070336292}
+    - target: {fileID: 1250845217, guid: c12ad52cb06456441ab5f64bc8d7f51b, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1af74f5e57d2b834786ee3813ecb20f2, type: 3}
     - target: {fileID: 964667383664602900, guid: c12ad52cb06456441ab5f64bc8d7f51b, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -28664,7 +28728,7 @@ PrefabInstance:
       objectReference: {fileID: 1930881152}
     - target: {fileID: 3226411450256595698, guid: c12ad52cb06456441ab5f64bc8d7f51b, type: 3}
       propertyPath: m_VersionIndex
-      value: 3132
+      value: 3135
       objectReference: {fileID: 0}
     - target: {fileID: 7659677940624550510, guid: c12ad52cb06456441ab5f64bc8d7f51b, type: 3}
       propertyPath: m_Name

@@ -6,11 +6,13 @@ public class PlayerCameraController : MonoBehaviour
 {
     [SerializeField] float lookSensitivity = 0.5f;
     Vector3 lookRotation;
+    [SerializeField] AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
         GestureManager.Instance.OnDrag += OnDrag;
         lookRotation = new Vector3(0,-90,0);
+        SoundManager.Instance.PlaySound(clip);
     }
 
     private void OnDisable()
