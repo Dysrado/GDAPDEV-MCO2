@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 134240388282949145}
   m_Layer: 0
   m_Name: Sideways Enemy
-  m_TagString: Untagged
+  m_TagString: RedEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &134240388282949145
 Transform:
   m_ObjectHideFlags: 0
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 134240389929014364}
   - component: {fileID: 134240389929014367}
   - component: {fileID: 134240389929014363}
+  - component: {fileID: 4628119966264753515}
   m_Layer: 0
   m_Name: SidewaysEnemy
   m_TagString: RedEnemy
@@ -145,4 +146,27 @@ MonoBehaviour:
   playerTag: Player
   WorldSpaceCanvas: WorldSpace
   UITimer: {fileID: 4472466725489252813, guid: 60cd13bd6de845941a0aec20e8f04554, type: 3}
-  attackInterval: 7
+  damageAmount: 1
+  hpManager: {fileID: 0}
+  attackInterval: 8
+  attackTime: 0
+--- !u!95 &4628119966264753515
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134240389929014305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b8f0d9b84149ea8468aa84afae33ef8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

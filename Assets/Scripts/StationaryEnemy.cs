@@ -8,20 +8,29 @@ public class StationaryEnemy : MonoBehaviour
     [SerializeField] string playerTag = "Player";
     [SerializeField] string WorldSpaceCanvas = "WorldSpace";
     [SerializeField] GameObject UITimer;
+    [SerializeField] int damageAmount = 1;
     private Image timerBar;
     Transform player;
+    HPManager hpManager;
 
     [SerializeField] float attackInterval = 1f;
-    float attackTime;
+    public float attackTime;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         timerBar = Instantiate(UITimer, GameObject.FindGameObjectWithTag(WorldSpaceCanvas).transform).GetComponent<Image>();
+        hpManager = FindObjectOfType<HPManager>();
         player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<Transform>();
         attackTime = attackInterval;
         timerBar.gameObject.SetActive(true);
     }
-    
+
+    private void OnEnable()
+    {
+        attackTime = attackInterval;
+        timerBar.gameObject.SetActive(true);
+    }
+
     private void OnDisable()
     {
         if (timerBar.gameObject != null)
@@ -66,7 +75,7 @@ public class StationaryEnemy : MonoBehaviour
 
     void Shoot()
     {
-        //Debug.Log($"Shoot by: {this.gameObject.name}");
+        hpManager.dealDmg(damageAmount);
     }
 
     

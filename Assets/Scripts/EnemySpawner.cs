@@ -22,21 +22,21 @@ public class EnemySpawner : MonoBehaviour
     {
         if (Timer < 0f)
         {
-            int Enemy = Random.Range(1, 3); //1 is Green, 2 is Blue, 3 is Red
+            int Enemy = Random.Range(1, 4); //1 is Green, 2 is Blue, 3 is Red
             //int Enemy = 3;
             int Node;
             switch (Enemy)
             {
                 case 1:
-                    Node = Random.Range(1, 3);
+                    Node = Random.Range(1, 4);
                     objPooler.SpawnFromPool("GreenEnemy", NodeList[Node - 1].transform.position);
                     break;
                 case 2:
-                    Node = Random.Range(4, 6);
+                    Node = Random.Range(4, 7);
                     objPooler.SpawnFromPool("BlueEnemy", NodeList[Node - 1].transform.position);
                     break;
                 case 3:
-                    Node = Random.Range(7, 9);
+                    Node = Random.Range(7, 10);
                     objPooler.SpawnFromPool("RedEnemy", NodeList[Node - 1].transform.position);
                     break;
             }
