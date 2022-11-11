@@ -49,4 +49,15 @@ public class BossShieldManager : MonoBehaviour
     {
         
     }
+
+    public bool IsChildrenActive()
+    {
+        for (int i = 0; i < shieldPanels.Count; i++)
+        {
+            if (shieldPanels[i].activeInHierarchy)
+                return true;
+        }
+
+        return false;
+    }
 }

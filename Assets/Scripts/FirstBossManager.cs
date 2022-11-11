@@ -17,6 +17,7 @@ public enum ShieldType
 public class FirstBossManager : MonoBehaviour
 {
     public FirstBossState bossState;
+    [SerializeField] private Animator animator;
 
     [SerializeField] private GameObject shieldSpawner;
     [SerializeField] private GameObject shieldPrefab;
@@ -24,6 +25,7 @@ public class FirstBossManager : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
 
     public GameObject shield;
+    public BossShieldManager bossShieldManager;
 
     public float projectileSpeed;
     private float projectileTicks;
@@ -31,7 +33,6 @@ public class FirstBossManager : MonoBehaviour
     public float projectileMaxInterval;
     public List<GameObject> projectiles;
     public GameObject projectile;
-
 
     [SerializeField] private GameObject playerCenter;
 
@@ -48,6 +49,7 @@ public class FirstBossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Projectiles
         projectileTicks += Time.deltaTime;
         if(projectileTicks > projectileInterval)
         {
@@ -56,11 +58,15 @@ public class FirstBossManager : MonoBehaviour
             projectileInterval = Random.Range(3, projectileMaxInterval + 1);
         }
         UpdateProjectiles();
+
+        // Shield
+        UpdateShield();
     }
 
     public void SpawnShield()
     {
         shield = GameObject.Instantiate(shieldPrefab, shieldSpawner.transform);
+        bossShieldManager = shield.GetComponent<BossShieldManager>();
     }
 
     public void SpawnProjectile()
@@ -75,6 +81,18 @@ public class FirstBossManager : MonoBehaviour
         for(int i = 0; i < projectiles.Count; i++)
         {
             //projectiles[i].transform.position = Vector3.MoveTowards(projectiles[i].transform.position, playerCenter.transform.position, projectileSpeed * Time.deltaTime);
+        }
+    }
+
+    public void UpdateShield()
+    {
+        if (!bossShieldManager.IsChildrenActive())
+        {
+            Debug.Log("No more shields!");
+        }
+        else
+        {
+            animator.SetBool("isDamaged", false);
         }
     }
 }
