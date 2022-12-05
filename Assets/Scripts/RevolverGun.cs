@@ -116,28 +116,29 @@ public class RevolverGun : MonoBehaviour
                 muzzleFlash.Play();
                 anim.SetTrigger("Shoot");
                 SoundManager.Instance.PlaySound(clip);
-            }
-            
-            RaycastHit hit;
-            //Debug.DrawRay(transform.position, transform.forward * 10, Color.red, 5);
-            
-            if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
-            {
-                hitObj = hit.collider.gameObject;
-                if (hitObj.CompareTag(enemyTag))
-                {
-                    Debug.Log("Object Hit!");
-                    hitObj.SetActive(false);
-                    coinsManager.addCoin(3);
-                    killsManager.addKills();
 
-                }
-                else
+
+                RaycastHit hit;
+                //Debug.DrawRay(transform.position, transform.forward * 10, Color.red, 5);
+
+                if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
                 {
-                    hitObj = null;
+                    hitObj = hit.collider.gameObject;
+                    if (hitObj.CompareTag(enemyTag))
+                    {
+                        Debug.Log("Object Hit!");
+                        hitObj.SetActive(false);
+                        coinsManager.addCoin(3);
+                        killsManager.addKills();
+
+                    }
+                    else
+                    {
+                        hitObj = null;
+                    }
                 }
-            }
-            startShotInterval = true;
+                startShotInterval = true;
+            }   
         }
     }
 

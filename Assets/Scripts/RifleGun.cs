@@ -111,24 +111,24 @@ public class RifleGun : MonoBehaviour
                 currentAmmo--;
                 muzzleFlash.Play();
                 anim.SetTrigger("RShoot");
-            }
 
-            RaycastHit hit;
-            if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
-            {
-                hitObj = hit.collider.gameObject;
-                if (hitObj.CompareTag(enemyTag))
+                RaycastHit hit;
+                if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
                 {
-                    hitObj.SetActive(false);
-                    coinsManager.addCoin(4);
-                    killsManager.addKills();
+                    hitObj = hit.collider.gameObject;
+                    if (hitObj.CompareTag(enemyTag))
+                    {
+                        hitObj.SetActive(false);
+                        coinsManager.addCoin(4);
+                        killsManager.addKills();
+                    }
+                    else
+                    {
+                        hitObj = null;
+                    }
                 }
-                else
-                {
-                    hitObj = null;
-                }
-            }
-            startShotInterval = true;
+                startShotInterval = true;
+            } 
         }
     }
 
