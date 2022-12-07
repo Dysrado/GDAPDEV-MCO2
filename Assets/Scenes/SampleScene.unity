@@ -5704,6 +5704,8 @@ MonoBehaviour:
   - {fileID: 195993616}
   - {fileID: 2047325827}
   - {fileID: 959650439}
+  ShakeText: {fileID: 620337734}
+  CameraAnim: {fileID: 963194231}
   BurstMeter: {fileID: 454655499}
   burstTime: 15
   distanceThreshold: 1

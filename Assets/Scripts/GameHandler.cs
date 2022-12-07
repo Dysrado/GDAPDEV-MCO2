@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class GameHandler : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameHandler : MonoBehaviour
     [SerializeField] GameObject LevelTwo;
     [SerializeField] GameObject Player;
     [SerializeField] GameObject[] LevelNodes;
+    [SerializeField] GameObject ShakeText;
+    [SerializeField] Animator CameraAnim;
     EnemySpawner spawnManager;
     private int currentLevel = 1;
     EnemyCountHandler killsManager;
@@ -33,6 +36,7 @@ public class GameHandler : MonoBehaviour
         transitionSelect();
         burstTimer = burstTime;
         boss.SetActive(false);
+        ShakeText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,10 +52,11 @@ public class GameHandler : MonoBehaviour
         }
 
         float distance = Vector3.Distance(prevAccel, Input.acceleration);
-
-        if (Mathf.Abs(distance) >= distanceThreshold)
+        ShakeText.SetActive(canBurst);
+        if (Mathf.Abs(distance) >= distanceThreshold) //Shake Detection
         {
             if (canBurst) {
+                CameraAnim.SetTrigger("UltBurst");
                 Debug.Log("Burst");
                 deleteEnemiesUlt();
                 canBurst = false;
