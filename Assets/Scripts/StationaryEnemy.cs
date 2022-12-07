@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class StationaryEnemy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class StationaryEnemy : MonoBehaviour
     [SerializeField] string WorldSpaceCanvas = "WorldSpace";
     [SerializeField] GameObject UITimer;
     [SerializeField] int damageAmount = 1;
+    [SerializeField] Animator animator;
     private Image timerBar;
     Transform player;
     HPManager hpManager;
@@ -75,6 +77,7 @@ public class StationaryEnemy : MonoBehaviour
 
     void Shoot()
     {
+        animator.SetTrigger("Attack");
         hpManager.dealDmg(damageAmount);
     }
 

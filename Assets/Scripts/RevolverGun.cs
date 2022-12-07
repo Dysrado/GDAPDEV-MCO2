@@ -11,6 +11,7 @@ public class RevolverGun : MonoBehaviour
     [SerializeField] Camera PlayerCam;
     [SerializeField] EnemyCountHandler killsManager;
     [SerializeField] AudioClip clip;
+    [SerializeField] const string bossTag = "Boss";
 
     // For the Magazine Size
     [SerializeField] float maxMagazineSize = 6;
