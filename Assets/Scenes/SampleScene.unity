@@ -24137,17 +24137,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 255916256}
   m_VersionIndex: 3511
   m_IsSelectable: 1
-  m_SelectedFaces: 05000000
-  m_SelectedEdges:
-  - a: 20
-    b: 21
-  - a: 22
-    b: 20
-  - a: 21
-    b: 23
-  - a: 23
-    b: 22
-  m_SelectedVertices: 14000000150000001600000017000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!43 &1166614214
 Mesh:
   m_ObjectHideFlags: 0
@@ -33434,7 +33426,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1770
+  m_Name: pb_Mesh-8054
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39967,7 +39959,7 @@ PrefabInstance:
       objectReference: {fileID: 1754721546}
     - target: {fileID: 2449797859925594110, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: m_VersionIndex
-      value: 3207
+      value: 3210
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326078571700, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: m_Name
