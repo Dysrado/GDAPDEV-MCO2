@@ -165,4 +165,15 @@ public class RevolverGun : MonoBehaviour
         currentAmmo = maxMagazineSize;
     }
 
+    public void SetMag(float magSize)
+    {
+        maxMagazineSize = magSize;
+    }
+
+    public void SetFireRate(float fireRate)
+    {
+        this.shotInterval = fireRate;
+    }
+
+    public float GetFireRate() { return shotInterval; }
 }

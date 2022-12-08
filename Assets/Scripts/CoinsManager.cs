@@ -32,6 +32,8 @@ public class CoinsManager : MonoBehaviour
         return currentCoins;
     }
 
+    public void SetCoins(int coins) { currentCoins = coins; }
+
     public void deductCoins(int amt)
     {
         currentCoins -= amt;

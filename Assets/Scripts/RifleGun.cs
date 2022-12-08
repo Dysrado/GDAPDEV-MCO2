@@ -146,4 +146,9 @@ public class RifleGun : MonoBehaviour
         maxMagazineSize = 9999;
         currentAmmo = maxMagazineSize;
     }
+
+    public void SetMag(float magSize)
+    {
+        maxMagazineSize = magSize;
+    }
 }

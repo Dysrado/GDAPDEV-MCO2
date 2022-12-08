@@ -45,4 +45,9 @@ public class HPManager : MonoBehaviour
         maxHP = 9999;
         currentHP = maxHP;  
     }
+
+    public void SetHP(int health)
+    {
+        maxHP = health;
+    }
 }
