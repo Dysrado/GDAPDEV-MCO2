@@ -33,12 +33,12 @@ public class BossShieldManager : MonoBehaviour
             if(shieldPanelTypes[i] == ShieldType.RED)
             {
                 shieldPanels[i].GetComponent<Renderer>().material = redMaterial;
-                shieldPanels[i].tag = "BlueEnemy"; // Change tag of panel
+                shieldPanels[i].tag = "RedEnemy"; // Change tag of panel
             }
             else if (shieldPanelTypes[i] == ShieldType.BLUE)
             {
                 shieldPanels[i].GetComponent<Renderer>().material = blueMaterial;
-                shieldPanels[i].tag = "RedEnemy"; // Change tag of panel
+                shieldPanels[i].tag = "BlueEnemy"; // Change tag of panel
             }
 
         }
