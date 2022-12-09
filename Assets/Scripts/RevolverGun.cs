@@ -133,16 +133,18 @@ public class RevolverGun : MonoBehaviour
                         coinsManager.addCoin(3);
                         killsManager.addKills();
                     }
-                    else if (hitObj.CompareTag("BossRed"))
+                    else if (hitObj.CompareTag("BossBlue"))
                     {
+                        Debug.Log("Hit shieldR");
                         hitObj.SetActive(false);
                         BossBehavior2 boss = FindObjectOfType<BossBehavior2>();
                         boss.shields();
                     }
                     else if (hitObj.CompareTag("Boss"))
                     {
-                        FindObjectOfType<LocalValues>().GetValues();
-                        SceneManager.LoadScene(SceneStrings.LEVEL_TWO_SCENE);
+                        FindObjectOfType<AnimationHandlerMimic>().triggerDie();
+                      
+                        
                         
                     }
                     else

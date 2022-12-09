@@ -11,7 +11,6 @@ public class RifleGun : MonoBehaviour
     [SerializeField] Camera PlayerCam;
     [SerializeField] EnemyCountHandler killsManager;
     [SerializeField] AudioClip clip;
-
     // For the Magazine Size
     [SerializeField] float maxMagazineSize = 30;
     float currentAmmo;
@@ -123,16 +122,17 @@ public class RifleGun : MonoBehaviour
                         coinsManager.addCoin(4);
                         killsManager.addKills();
                     }
-                    else if (hitObj.CompareTag("BossBlue"))
+                    else if (hitObj.CompareTag("BossRed"))
                     {
+                        Debug.Log("Hit shieldR");
                         hitObj.SetActive(false);
                         BossBehavior2 boss = FindObjectOfType<BossBehavior2>();
                         boss.shields();
                     }
                     else if (hitObj.CompareTag("Boss"))
                     {
-                        FindObjectOfType<LocalValues>().GetValues();
-                        SceneManager.LoadScene(SceneStrings.LEVEL_TWO_SCENE);
+                        FindObjectOfType<AnimationHandlerMimic>().triggerDie();
+                       
                     }
                     else
                     {
