@@ -7,10 +7,12 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private GameObject HelpUI1;
     [SerializeField] private GameObject HelpUI2;
+    [SerializeField] private GameObject HelpUI;
 
     // Start is called before the first frame update
     void Start()
     {
+        HelpUI.SetActive(false);
         HelpUI1.SetActive(false);
         HelpUI2.SetActive(false);
         Time.timeScale = 1f;
@@ -24,6 +26,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void OpenHelpPanel1()
     {
+        HelpUI.SetActive(true);
         HelpUI1.SetActive(true);
 
     }

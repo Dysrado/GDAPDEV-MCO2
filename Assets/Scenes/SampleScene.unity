@@ -7884,10 +7884,18 @@ MonoBehaviour:
   burstTime: 15
   distanceThreshold: 1
   boss: {fileID: 1395046736}
-  SecondScreenPrefab: {fileID: 9000314745180194394, guid: 7816398c8130f824b997329e2ca4c691, type: 3}
   SecondScreenSpawnpoint: {fileID: 974825202}
-  BossScreenPrefab: {fileID: 8438161496524016710, guid: cea92094126dccb4698b5d70b8d23d5a, type: 3}
+  secondScreenRef:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   BossScreenSpawnpoint: {fileID: 267529854}
+  bossScreenRef:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!4 &637815926
 Transform:
   m_ObjectHideFlags: 0
@@ -19957,7 +19965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326508799640, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: GetValues
+      value: disperse
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326508799640, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
