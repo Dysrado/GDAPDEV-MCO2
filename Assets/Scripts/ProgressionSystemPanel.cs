@@ -20,6 +20,6 @@ public class ProgressionSystemPanel : MonoBehaviour
     public void ClosePanel()
     {
         Panel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
     }
 }

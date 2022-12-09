@@ -13,7 +13,7 @@ public class MainMenuUI : MonoBehaviour
     {
         HelpUI1.SetActive(false);
         HelpUI2.SetActive(false);
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
     public void PlayGame()
