@@ -14,16 +14,21 @@ public class LocalValues : MonoBehaviour
 
     [SerializeField] float fireRateRev = 0.3f;
 
-    
+
 
     // Call this on the start of the scene
-    public void Initilize()
+
+    private void Update()
     {
+        timeElapsed += Time.deltaTime;
+    }
+    private void Start()
+     {
         // Take values from the singleton
         maxHealth = PlayerValues.Instance.GetHealth();
         coins = PlayerValues.Instance.GetCoins();
 
-        //timeElapsed = PlayerValues.Instance.GetTimeElapsed();
+        timeElapsed = PlayerValues.Instance.GetTimeElapsed();
 
         rifleMag = PlayerValues.Instance.GetRifleMag();
         revMag = PlayerValues.Instance.GetRevolverMag();
@@ -58,7 +63,7 @@ public class LocalValues : MonoBehaviour
         PlayerValues.Instance.SetHealth(maxHealth);
         PlayerValues.Instance.SetCoins(coins);
 
-        //PlayerValues.Instance.SetTimeElapsed(timeElapsed);
+        PlayerValues.Instance.SetTimeElapsed(timeElapsed);
 
         PlayerValues.Instance.SetRifleMag(rifleMag);
         PlayerValues.Instance.SetRevolverMag(revMag);
