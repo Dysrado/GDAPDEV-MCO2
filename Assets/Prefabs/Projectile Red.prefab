@@ -65,7 +65,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalSize: {x: 1, y: 1, z: 1}
   growthRate: 0.5
-  speed: 1
+  speed: 4
+  damage: 2
 --- !u!65 &4775956171587892084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1243,7 +1244,7 @@ MeshCollider:
   m_GameObject: {fileID: 8650492442619900243}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30

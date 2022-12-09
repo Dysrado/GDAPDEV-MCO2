@@ -10,6 +10,7 @@ public class Boss3Projectile : MonoBehaviour
     [SerializeField] Vector3 finalSize;
     [SerializeField] float growthRate = .5f;
     [SerializeField] float speed = 10f;
+    [SerializeField] int damage = 2;
 
     Transform playerPosition;
 
@@ -46,5 +47,14 @@ public class Boss3Projectile : MonoBehaviour
     public void Attack()
     {
         isAttacking = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            FindObjectOfType<PlayerHurtColliderManager>().Damage(damage);
+            gameObject.SetActive(false);
+        }
     }
 }
