@@ -25,7 +25,7 @@ public class WebHandler : MonoBehaviour
     {
         StartCoroutine(GetScoresRequest());
     }
-    public void CreatePlayer(string name, int score)
+    public void CreatePlayer(string name, int score) //
     {
         StartCoroutine(CreatePlayerRequest(name, score));
     }

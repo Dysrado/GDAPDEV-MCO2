@@ -111,15 +111,13 @@ public class RevolverGun : MonoBehaviour
         
         if (canShoot && !startShotInterval)
         {
-            
             if (currentAmmo > 0)
             {
                 currentAmmo--;
                 muzzleFlash.Play();
                 anim.SetTrigger("Shoot");
                 SoundManager.Instance.PlaySound(clip);
-
-
+                startShotInterval = true;
                 RaycastHit hit;
                 //Debug.DrawRay(transform.position, transform.forward * 10, Color.red, 5);
 
@@ -143,16 +141,12 @@ public class RevolverGun : MonoBehaviour
                     else if (hitObj.CompareTag("Boss"))
                     {
                         FindObjectOfType<AnimationHandlerMimic>().triggerDie();
-                      
-                        
-                        
                     }
                     else
                     {
                         hitObj = null;
                     }
                 }
-                startShotInterval = true;
             }   
         }
     }

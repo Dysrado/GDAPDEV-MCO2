@@ -3363,6 +3363,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2221223456779783348, guid: d59bc844d01fa464ca1ccac7b6b256da, type: 3}
+      propertyPath: maxHp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2221223456779783348, guid: d59bc844d01fa464ca1ccac7b6b256da, type: 3}
       propertyPath: playerCenter
       value: 
       objectReference: {fileID: 1968534453}
@@ -3924,7 +3928,7 @@ MonoBehaviour:
   - {fileID: 2120210381}
   - {fileID: 288219210}
   - {fileID: 1113553511}
-  SpawnInterval: 1.5
+  SpawnInterval: 3
 --- !u!4 &321692609
 Transform:
   m_ObjectHideFlags: 0
@@ -11055,7 +11059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &966514598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19089,7 +19093,7 @@ MonoBehaviour:
   - {fileID: 707668049}
   - {fileID: 492819222}
   - {fileID: 1261537533}
-  SpawnInterval: 1.5
+  SpawnInterval: 3
 --- !u!4 &2044150786
 Transform:
   m_ObjectHideFlags: 0
@@ -20068,11 +20072,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326314476581, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: maxKillsA1
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326314476581, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: maxKillsA2
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326508799640, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

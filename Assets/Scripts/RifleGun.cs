@@ -111,6 +111,9 @@ public class RifleGun : MonoBehaviour
                 currentAmmo--;
                 muzzleFlash.Play();
                 anim.SetTrigger("RShoot");
+                SoundManager.Instance.PlaySound(clip);
+
+                startShotInterval = true;
 
                 RaycastHit hit;
                 if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
@@ -132,15 +135,14 @@ public class RifleGun : MonoBehaviour
                     else if (hitObj.CompareTag("Boss"))
                     {
                         FindObjectOfType<AnimationHandlerMimic>().triggerDie();
-                       
+
                     }
                     else
                     {
                         hitObj = null;
                     }
                 }
-                startShotInterval = true;
-            } 
+            }
         }
     }
 
