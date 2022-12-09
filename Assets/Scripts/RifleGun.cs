@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RifleGun : MonoBehaviour
 {
-    [SerializeField] string enemyTag = "GreenEnemy";
+    [SerializeField] string enemyTag = "BlueEnemy";
     [SerializeField] TMP_Text ammoText;
     [SerializeField] Camera PlayerCam;
     [SerializeField] EnemyCountHandler killsManager;
@@ -121,6 +121,18 @@ public class RifleGun : MonoBehaviour
                         hitObj.SetActive(false);
                         coinsManager.addCoin(4);
                         killsManager.addKills();
+                    }
+                    else if (hitObj.CompareTag("BossBlue"))
+                    {
+                        hitObj.SetActive(false);
+                        BossBehavior2 boss = FindObjectOfType<BossBehavior2>();
+                        boss.shields();
+                    }
+                    else if (hitObj.CompareTag("Boss"))
+                    {
+                        //add coins
+                        //send values to static
+                        //Change to next level
                     }
                     else
                     {

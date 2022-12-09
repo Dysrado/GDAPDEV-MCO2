@@ -131,7 +131,18 @@ public class RevolverGun : MonoBehaviour
                         hitObj.SetActive(false);
                         coinsManager.addCoin(3);
                         killsManager.addKills();
-
+                    }
+                    else if (hitObj.CompareTag("BossRed"))
+                    {
+                        hitObj.SetActive(false);
+                        BossBehavior2 boss = FindObjectOfType<BossBehavior2>();
+                        boss.shields();
+                    }
+                    else if (hitObj.CompareTag("Boss"))
+                    {
+                        //add coins
+                        //send values to static
+                        //Change to next level
                     }
                     else
                     {

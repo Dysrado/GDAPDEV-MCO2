@@ -12,6 +12,8 @@ TagManager:
   - RedNodes
   - BossProjectile
   - Boss
+  - BossRed
+  - BossBlue
   layers:
   - Default
   - TransparentFX
