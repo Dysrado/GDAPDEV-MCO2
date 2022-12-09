@@ -27,4 +27,9 @@ public class PlayerHurtColliderManager : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
+
+    public void Damage(int damage)
+    {
+        hpManager.dealDmg(damage);
+    }
 }

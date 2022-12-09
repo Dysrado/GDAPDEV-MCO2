@@ -103,8 +103,7 @@ public class FirstBossManager : MonoBehaviour
                     Debug.Log("You win!");
                     FindObjectOfType<CoinsManager>().addCoin(30);
                     FindObjectOfType<LocalValues>().GetValues();
-                    //SceneManager.LoadScene(SceneStrings.LEVEL_TWO_SCENE);
-                    SceneManager.LoadScene(SceneStrings.MAIN_MSCENE); 
+                    SceneManager.LoadScene(SceneStrings.LEVEL_TWO_SCENE);
                 }
                 else
                 {

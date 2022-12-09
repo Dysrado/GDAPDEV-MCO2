@@ -5,14 +5,6 @@ using UnityEngine.Animations;
 
 public class Boss3Behavior : MonoBehaviour
 {
-    enum BossState
-    {
-        NORMAL = 0,
-        ENRAGED,
-        DOWNED,
-        CHARGING
-    };
-
     [SerializeField] Animator animator;
 
     [SerializeField] Transform[] projectileSpawnPoints;
@@ -22,10 +14,10 @@ public class Boss3Behavior : MonoBehaviour
     float chargeTimer;
     bool startChargeTimer;
 
+    [SerializeField] int numberOfProjectiles = 3; // how long it takes to charge the base attack
     int hitCount = 0; // number of times projectile groups have been destroyed
 
     bool startFight = false;
-    BossState currentState = BossState.NORMAL;
     float stateInterval = 7.0f;
     float stateTimer;
 
@@ -42,7 +34,10 @@ public class Boss3Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckState();
+        if (startFight)
+        {
+            CheckState();
+        }
     }
 
 
@@ -57,7 +52,6 @@ public class Boss3Behavior : MonoBehaviour
             }
             else
             {
-                currentState = BossState.NORMAL;
                 stateTimer -= Time.deltaTime;
             }
             
@@ -79,7 +73,7 @@ public class Boss3Behavior : MonoBehaviour
                 }
                 else // charge
                 {
-                    if (projectileList.Count < 3)
+                    if (projectileList.Count < numberOfProjectiles)
                     {
                         int randomProjectile = Random.Range(0, projectilePrefabs.Length);
                         int randomLocation = Random.Range(0, projectileSpawnPoints.Length);
@@ -97,12 +91,10 @@ public class Boss3Behavior : MonoBehaviour
                         projectileList.Clear();
                         startChargeTimer = false;
                         chargeTimer = chargeTime;
-                        currentState = BossState.NORMAL;
                     }
                     
                     chargeTimer -= Time.deltaTime; 
                 }
-                currentState = BossState.CHARGING;
             }
         }
         else
@@ -115,6 +107,7 @@ public class Boss3Behavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Player has entered the arena");
             startFight = true;
         }
     }
