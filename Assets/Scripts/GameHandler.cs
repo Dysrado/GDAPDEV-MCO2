@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class GameHandler : MonoBehaviour
 {
@@ -29,6 +31,17 @@ public class GameHandler : MonoBehaviour
     // Boss
     public GameObject boss;
 
+    // Asset Bundling
+    // 2nd Screen
+    [SerializeField] private GameObject SecondScreenSpawnpoint;
+    private bool secondScreenSpawned = false;
+    public AssetReference secondScreenRef;
+
+    //[SerializeField] private GameObject BossScreenPrefab;
+    [SerializeField] private GameObject BossScreenSpawnpoint;
+    private bool bossScreenSpawned = false;
+    public AssetReference bossScreenRef;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +55,20 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Spawn Level Based on Current Level
+        if (currentLevel == 2 && !secondScreenSpawned)
+        {
+            AsyncOperationHandle secondScreenHandle = secondScreenRef.LoadAssetAsync<GameObject>();
+            secondScreenHandle.Completed += SecondScreenHandle_Completed;  
+            secondScreenSpawned = true;
+        }
+        else if (currentLevel == 3 && !bossScreenSpawned)
+        {
+            AsyncOperationHandle bossScreenHandle = bossScreenRef.LoadAssetAsync<GameObject>();
+            bossScreenHandle.Completed += BossScreenHandle_Completed;
+            bossScreenSpawned = true;
+        }
+
         checkPartClear();
         finishTransition = checkPosition();
         transitionMovement();
@@ -76,6 +103,39 @@ public class GameHandler : MonoBehaviour
             }
         }
         BurstMeter.fillAmount = burstTimer/burstTime;
+    }
+    
+    private void SecondScreenHandle_Completed(AsyncOperationHandle obj)
+    {
+        if (obj.Status == AsyncOperationStatus.Succeeded)
+        {
+            // Spawn 2ndScreen Prefab
+            //GameObject.Instantiate(SecondScreenPrefab, SecondScreenSpawnpoint.transform);
+            Instantiate(secondScreenRef.Asset, SecondScreenSpawnpoint.transform);
+        }
+        else
+        {
+            Debug.LogError($"AssetReference {secondScreenRef.RuntimeKey} failed to load.");
+        }
+    }
+
+    private void BossScreenHandle_Completed(AsyncOperationHandle obj)
+    {
+        if (obj.Status == AsyncOperationStatus.Succeeded)
+        {
+            // Spawn Boss Screen Prefab
+            //GameObject.Instantiate(BossScreenPrefab, BossScreenSpawnpoint.transform);
+            Instantiate(bossScreenRef.Asset, BossScreenSpawnpoint.transform);
+        }
+        else
+        {
+            Debug.LogError($"AssetReference {bossScreenRef.RuntimeKey} failed to load.");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        secondScreenRef.ReleaseAsset();
     }
 
     void checkPartClear()
