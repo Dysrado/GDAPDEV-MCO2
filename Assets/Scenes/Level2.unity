@@ -419,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &289777424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,11 +940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326314476581, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: maxKillsA1
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326314476581, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: maxKillsA2
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326508799640, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   - {fileID: 362571561}
   - {fileID: 1103827817}
   - {fileID: 1566506585}
-  SpawnInterval: 1.5
+  SpawnInterval: 3
 --- !u!1 &595520572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   - {fileID: 595520572}
   - {fileID: 521882622}
   - {fileID: 1183479717}
-  SpawnInterval: 1.5
+  SpawnInterval: 3
 --- !u!1 &639204380
 GameObject:
   m_ObjectHideFlags: 0
@@ -4101,7 +4101,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-80834
+  m_Name: pb_Mesh75462
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

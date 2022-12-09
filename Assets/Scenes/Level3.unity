@@ -3688,11 +3688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326314476581, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: maxKillsA1
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326314476581, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: maxKillsA2
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4710195326508799640, guid: a12cf30a7fef6354fa8357780d377694, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4823,7 +4823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &966514598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12606,7 +12606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f0372f9f02aff643a346b7e147f1096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
+  input: {fileID: 1245454376}
 --- !u!1 &2081179546
 GameObject:
   m_ObjectHideFlags: 0
