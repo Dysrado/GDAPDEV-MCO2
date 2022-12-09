@@ -11,6 +11,8 @@ public class HPManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private int maxHP;
     [SerializeField] private int currentHP;
+    [SerializeField] private GameObject gameOverScreen;
+
 
 
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class HPManager : MonoBehaviour
     void Update()
     {
         healthText.text = currentHP.ToString();
+        CheckDead();
     }
 
     public void dealDmg(int dmg)
@@ -49,5 +52,14 @@ public class HPManager : MonoBehaviour
     public void SetHP(int health)
     {
         maxHP = health;
+    }
+
+    void CheckDead()
+    {
+        if (currentHP <= 0)
+        {
+            Time.timeScale = 0;
+            gameOverScreen.SetActive(true);
+        }
     }
 }
