@@ -36,7 +36,7 @@ public class NotificationsHandler : MonoBehaviour
 
     public void SendNotif()
     {
-        System.DateTime fireTime = System.DateTime.Now;
+        System.DateTime fireTime = System.DateTime.Now.AddSeconds(seconds);
 
         System.TimeSpan interval = new System.TimeSpan(0, 0, seconds);
         AndroidNotification notif = new AndroidNotification(notif_title, notif_message, fireTime);
