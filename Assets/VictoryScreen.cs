@@ -11,7 +11,7 @@ public class VictoryScreen : MonoBehaviour
 
     public void Send()
     {
-        FindObjectOfType<WebHandler>().CreatePlayer(input.text, FindObjectOfType<LocalValues>().GetTimeElapsed());
+        FindObjectOfType<WebHandler>().CreatePlayer(input.text.ToString(), FindObjectOfType<LocalValues>().GetTimeElapsed()); ;
         SceneManager.LoadScene(SceneStrings.MAIN_MSCENE);
     }
 }

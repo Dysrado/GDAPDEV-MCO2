@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44843, g: 0.49635917, b: 0.56482273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -767,7 +767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &966514598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,8 +780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34262e7274829774898ddf5e23c0aaa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _androidGameId: 5065593
-  _iOSGameId: 5065592
+  _androidGameId: 5067563
+  _iOSGameId: 5067562
   _testMode: 1
 --- !u!4 &966514599
 Transform:
