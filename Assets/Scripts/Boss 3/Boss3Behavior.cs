@@ -17,7 +17,6 @@ public class Boss3Behavior : MonoBehaviour
     [SerializeField] int numberOfProjectiles = 3; // how long it takes to charge the base attack
     int hitCount = 0; // number of times projectile groups have been destroyed
 
-    bool startFight = false;
     float stateInterval = 7.0f;
     float stateTimer;
 
@@ -34,10 +33,9 @@ public class Boss3Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startFight)
-        {
-            CheckState();
-        }
+
+        CheckState();
+        
     }
 
 
@@ -97,20 +95,13 @@ public class Boss3Behavior : MonoBehaviour
                 }
             }
         }
-        else
+        else // when boss is defeated
         {
-            gameObject.SetActive(false);
+            
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Player has entered the arena");
-            startFight = true;
-        }
-    }
+
 
     int GetDisabled()
     {
