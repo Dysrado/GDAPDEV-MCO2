@@ -8,6 +8,8 @@ public class EnemyCountHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI killText;
     [SerializeField] private int maxKills;
     [SerializeField] private int currentKills;
+    [SerializeField] private int maxKillsA1;
+    [SerializeField] private int maxKillsA2;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +35,11 @@ public class EnemyCountHandler : MonoBehaviour
         {
             case 1:
                 currentKills = 0;
-                maxKills = 1;
+                maxKills = maxKillsA1;
                 break;
             case 2:
                 currentKills = 0;
-                maxKills = 1;
+                maxKills = maxKillsA2;
                 break;
             case 3:
                 currentKills = 0;

@@ -31,6 +31,12 @@ public class LocalValues : MonoBehaviour
         fireRateRev = PlayerValues.Instance.GetRevFireRate();
 
 
+        
+    }
+
+    //Call this after the shop is closed
+    public void disperse()
+    {
         // Place new values into the other functions
         FindObjectOfType<HPManager>().SetHP(maxHealth);
         FindObjectOfType<CoinsManager>().SetCoins(coins);
@@ -39,13 +45,14 @@ public class LocalValues : MonoBehaviour
         FindObjectOfType<RevolverGun>().SetMag(revMag);
 
         FindObjectOfType<RevolverGun>().SetFireRate(fireRateRev);
+
     }
 
     // Use this function when the boss is killed
     public void GetValues()
     {
         // get the coins
-        coins = PlayerValues.Instance.GetCoins();
+        coins = FindObjectOfType<CoinsManager>().getCoins();
 
         // put the values into singleton
         PlayerValues.Instance.SetHealth(maxHealth);
@@ -57,5 +64,44 @@ public class LocalValues : MonoBehaviour
         PlayerValues.Instance.SetRevolverMag(revMag);
 
         PlayerValues.Instance.SetRevFireRate(fireRateRev);
+    }
+
+    // Shop Progression System
+    public void addCoins(int coins) { this.coins += coins; }
+    public void deductCoins(int coins) { this.coins -= coins; }
+    public void addMaxHP()
+    {
+        if (maxHealth < 15 && coins >= 15)
+        {
+            this.maxHealth++;
+            deductCoins(3);
+        }
+    }
+
+    public void addRifleMag()
+    {
+        if (rifleMag < 60 && coins >= 20)
+        {
+            deductCoins(2);
+            rifleMag += 15;
+        }
+    }
+
+    public void addRevMag()
+    {
+        if (revMag < 12 && coins >= 20)
+        {
+            deductCoins(2);
+            revMag++;
+        }
+    }
+
+    public void addRevFireRate()
+    {
+        if (fireRateRev > 0.1f && coins >= 10)
+        {
+            deductCoins(1);
+            fireRateRev -= 0.1f;
+        }
     }
 }

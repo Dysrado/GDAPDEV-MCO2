@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RifleGun : MonoBehaviour
 {
@@ -130,9 +131,8 @@ public class RifleGun : MonoBehaviour
                     }
                     else if (hitObj.CompareTag("Boss"))
                     {
-                        //add coins
-                        //send values to static
-                        //Change to next level
+                        FindObjectOfType<LocalValues>().GetValues();
+                        SceneManager.LoadScene(SceneStrings.LEVEL_TWO_SCENE);
                     }
                     else
                     {

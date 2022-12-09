@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum FirstBossState
 {
@@ -100,6 +101,9 @@ public class FirstBossManager : MonoBehaviour
                 if (currentHp <= 0)
                 {
                     Debug.Log("You win!");
+                    FindObjectOfType<CoinsManager>().addCoin(30);
+                    FindObjectOfType<LocalValues>().GetValues();
+                    SceneManager.LoadScene(SceneStrings.LEVEL_TWO_SCENE);
                 }
                 else
                 {
