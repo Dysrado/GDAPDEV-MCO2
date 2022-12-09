@@ -109,4 +109,9 @@ public class LocalValues : MonoBehaviour
             fireRateRev -= 0.1f;
         }
     }
+
+    public int GetTimeElapsed()
+    {
+        return (int)timeElapsed;
+    }
 }

@@ -9,6 +9,7 @@ public class Boss3Behavior : MonoBehaviour
 
     [SerializeField] Transform[] projectileSpawnPoints;
     [SerializeField] GameObject[] projectilePrefabs;
+    [SerializeField] GameObject VictoryScreen;
 
     [SerializeField] float chargeTime = 5f; // how long it takes to charge the base attack
     float chargeTimer;
@@ -97,7 +98,7 @@ public class Boss3Behavior : MonoBehaviour
         }
         else // when boss is defeated
         {
-            
+            VictoryScreen.SetActive(true);
         }
     }
 
