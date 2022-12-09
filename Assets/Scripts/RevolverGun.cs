@@ -111,49 +111,46 @@ public class RevolverGun : MonoBehaviour
         
         if (canShoot && !startShotInterval)
         {
-            
             if (currentAmmo > 0)
             {
                 currentAmmo--;
                 muzzleFlash.Play();
                 anim.SetTrigger("Shoot");
                 SoundManager.Instance.PlaySound(clip);
-
-
-                RaycastHit hit;
-                //Debug.DrawRay(transform.position, transform.forward * 10, Color.red, 5);
-
-                if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
-                {
-                    hitObj = hit.collider.gameObject;
-                    if (hitObj.CompareTag(enemyTag))
-                    {
-                        Debug.Log("Object Hit!");
-                        hitObj.SetActive(false);
-                        coinsManager.addCoin(3);
-                        killsManager.addKills();
-                    }
-                    else if (hitObj.CompareTag("BossBlue"))
-                    {
-                        Debug.Log("Hit shieldR");
-                        hitObj.SetActive(false);
-                        BossBehavior2 boss = FindObjectOfType<BossBehavior2>();
-                        boss.shields();
-                    }
-                    else if (hitObj.CompareTag("Boss"))
-                    {
-                        FindObjectOfType<AnimationHandlerMimic>().triggerDie();
-                      
-                        
-                        
-                    }
-                    else
-                    {
-                        hitObj = null;
-                    }
-                }
                 startShotInterval = true;
-            }   
+                
+            }
+            RaycastHit hit;
+            //Debug.DrawRay(transform.position, transform.forward * 10, Color.red, 5);
+
+            if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
+            {
+                hitObj = hit.collider.gameObject;
+                if (hitObj.CompareTag(enemyTag))
+                {
+                    Debug.Log("Object Hit!");
+                    hitObj.SetActive(false);
+                    coinsManager.addCoin(3);
+                    killsManager.addKills();
+                }
+                else if (hitObj.CompareTag("BossBlue"))
+                {
+                    Debug.Log("Hit shieldR");
+                    hitObj.SetActive(false);
+                    BossBehavior2 boss = FindObjectOfType<BossBehavior2>();
+                    boss.shields();
+                }
+                else if (hitObj.CompareTag("Boss"))
+                {
+                    FindObjectOfType<AnimationHandlerMimic>().triggerDie();
+                }
+                else
+                {
+                    hitObj = null;
+                    return;
+                }
+            }
+            
         }
     }
 
