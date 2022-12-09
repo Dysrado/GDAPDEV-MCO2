@@ -21,13 +21,13 @@ public class NotificationsHandler : MonoBehaviour
 
     private void BuildDefaultNotificationChannel()
     {
-        string channel_id = "default";
+        string channel_id = "repeat";
 
-        string title = "Defaul Channel";
+        string title = "Repeat Channel";
 
         Importance importance = Importance.Default;
 
-        string description = "Default Channel for this game";
+        string description = "Channel for repeating notifications";
 
         AndroidNotificationChannel defaultChannel = new AndroidNotificationChannel(channel_id, title, description, importance);
 
@@ -36,12 +36,12 @@ public class NotificationsHandler : MonoBehaviour
 
     public void SendNotif()
     {
-        System.DateTime fireTime = System.DateTime.Now.AddSeconds(10);
+        System.DateTime fireTime = System.DateTime.Now;
 
         System.TimeSpan interval = new System.TimeSpan(0, 0, seconds);
         AndroidNotification notif = new AndroidNotification(notif_title, notif_message, fireTime);
 
-        AndroidNotificationCenter.SendNotification(notif, "default");
+        AndroidNotificationCenter.SendNotification(notif, "repeat");
     }
 
     public void AddTime()
