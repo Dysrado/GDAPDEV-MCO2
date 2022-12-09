@@ -111,36 +111,39 @@ public class RifleGun : MonoBehaviour
                 currentAmmo--;
                 muzzleFlash.Play();
                 anim.SetTrigger("RShoot");
+                SoundManager.Instance.PlaySound(clip);
 
-                RaycastHit hit;
-                if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
-                {
-                    hitObj = hit.collider.gameObject;
-                    if (hitObj.CompareTag(enemyTag))
-                    {
-                        hitObj.SetActive(false);
-                        coinsManager.addCoin(4);
-                        killsManager.addKills();
-                    }
-                    else if (hitObj.CompareTag("BossRed"))
-                    {
-                        Debug.Log("Hit shieldR");
-                        hitObj.SetActive(false);
-                        BossBehavior2 boss = FindObjectOfType<BossBehavior2>();
-                        boss.shields();
-                    }
-                    else if (hitObj.CompareTag("Boss"))
-                    {
-                        FindObjectOfType<AnimationHandlerMimic>().triggerDie();
-                       
-                    }
-                    else
-                    {
-                        hitObj = null;
-                    }
-                }
                 startShotInterval = true;
-            } 
+                
+            }
+            RaycastHit hit;
+            if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, Mathf.Infinity))
+            {
+                hitObj = hit.collider.gameObject;
+                if (hitObj.CompareTag(enemyTag))
+                {
+                    hitObj.SetActive(false);
+                    coinsManager.addCoin(4);
+                    killsManager.addKills();
+                }
+                else if (hitObj.CompareTag("BossRed"))
+                {
+                    Debug.Log("Hit shieldR");
+                    hitObj.SetActive(false);
+                    BossBehavior2 boss = FindObjectOfType<BossBehavior2>();
+                    boss.shields();
+                }
+                else if (hitObj.CompareTag("Boss"))
+                {
+                    FindObjectOfType<AnimationHandlerMimic>().triggerDie();
+
+                }
+                else
+                {
+                    hitObj = null;
+                    return;
+                }
+            }
         }
     }
 
